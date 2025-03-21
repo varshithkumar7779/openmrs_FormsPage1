@@ -13,7 +13,7 @@ What Does It Do?
 
 What’s New in the Improved Version?
 1. TypeScript:
-      I added TypeScript types to make the code easier to understand and debug. No more guessing what kind of data you’re working with!
+      I added TypeScript types to make the code easier to understand and debug.
 2. Faster Performance:
       By using useMemo,I made sure the app runs smoothly, even with lots of forms.
 3. Better Error Handling:
