@@ -29,7 +29,6 @@ interface FormsPageProps {
   config: Config;
 }
 
-// Helper function to organize forms by permissions
 export const getFormPermissions = (forms: Form[]) => {
   const output: Record<string, string[]> = {};
   forms?.forEach((form) => {
@@ -39,7 +38,6 @@ export const getFormPermissions = (forms: Form[]) => {
   return output;
 };
 
-// Function adds `id` field to rows so they will be accepted by DataTable
 const prepareRowsForTable = (rawFormData: Form[]) => {
   if (!rawFormData) return null;
   return rawFormData.map((form) => ({
@@ -56,10 +54,8 @@ const FormsPage: React.FC<FormsPageProps> = () => {
   const { forms, isLoading, error } = useGetAllForms();
   const { user } = useSession();
 
-  // Prepare rows for the table
   const cleanRows = useMemo(() => prepareRowsForTable(forms), [forms]);
 
-  // Get active forms from localStorage
   const savedFormsData = localStorage.getItem(`${fdeWorkflowStorageName}:${user?.uuid}`);
   const savedGroupFormsData = localStorage.getItem(`${fdeGroupWorkflowStorageName}:${user?.uuid}`);
 
@@ -78,7 +74,6 @@ const FormsPage: React.FC<FormsPageProps> = () => {
     });
   }
 
-  // Prepare category rows for the table
   const categoryRows = useMemo(() => {
     return formCategoriesToShow.map((name) => {
       const category = formCategories.find((category) => category.name === name);
