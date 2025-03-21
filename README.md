@@ -23,29 +23,29 @@ What’s New in the Improved Version?
 
 KEY CHANGES:
 1. Added TypeScript Types:
-     a)Added Form Interface : Defined a Form object, including uuid, display, name, and encounterType.
+     1.Added Form Interface : Defined a Form object, including uuid, display, name, and encounterType.
                       Reason: Ensures the correct data structure is used and prevents runtime errors.
-     b)Added Type for output: Defined output as Record<string, string[]> to specify that it’s an object with string keys and string array values.
+     2.Added Type for output: Defined output as Record<string, string[]> to specify that it’s an object with string keys and string array values.
                       Reason: Improves type safety and makes the code easier to understand and debug.
 2. Optimized Performance with useMemo:
-     a)Wrapped cleanRows in useMemo: Memoizes the result of prepareRowsForTable(forms) to avoid recalculating it on every render.
+     1.Wrapped cleanRows in useMemo: Memoizes the result of prepareRowsForTable(forms) to avoid recalculating it on every render.
                              Reason: Improves performance by preventing unnecessary recalculations when forms hasn’t changed.
-     b)Wrapped categoryRows in useMemo: Memoizes the result of organizing forms into categories.
+     2.Wrapped categoryRows in useMemo: Memoizes the result of organizing forms into categories.
                              Reason: Prevents unnecessary recalculations when formCategories, formCategoriesToShow, or cleanRows haven’t changed.
-     c)Simplified Return Value: Changed return { ...{ name, rows } } to return { name, rows }.
+     3.Simplified Return Value: Changed return { ...{ name, rows } } to return { name, rows }.
                              Reason: Removes unnecessary object spread, making the code cleaner and easier to read.
 3. Improved Error Handling:
-     a)Added Type for rawFormData: Defined rawFormData as Form[] to ensure it’s an array of Form objects.
+     1.Added Type for rawFormData: Defined rawFormData as Form[] to ensure it’s an array of Form objects.
                            Reason: Improves type safety and prevents runtime errors.
-     b)Simplified Conditional Check: Changed if (rawFormData) to if (!rawFormData) return null.
+     2.Simplified Conditional Check: Changed if (rawFormData) to if (!rawFormData) return null.
                            Reason: Makes the code more concise and easier to read.
 4. Cleaned Up the Code:
-     a)Removed Redundant Object Spread: Changed return { ...{ name, rows } } to return { name, rows }.
+     1.Removed Redundant Object Spread: Changed return { ...{ name, rows } } to return { name, rows }.
                             Reason: Simplifies the code and removes unnecessary complexity.
-     b)Improved Variable Naming: Changed rows to rows:Form[] to clarify its type.
+     2.Improved Variable Naming: Changed rows to rows:Form[] to clarify its type.
                             Reason: Makes the code easier to understand and maintain.
 5. Improved State Management:
-     a)Used Template Literals: Changed string concatenation (+) to template literals (`${}`).
+     Used Template Literals: Changed string concatenation (+) to template literals (`${}`).
                             Reason: Makes the code cleaner and easier to read. Prepares the app for future enhancements and scalability.
 => useMemo(): The useMemo hook is a performance optimization tool in React. It is used to memoize (cache) the result of a computation so that it doesn’t need to be 
               recalculated on every render. This is particularly useful when dealing with expensive calculations or complex data transformations.
